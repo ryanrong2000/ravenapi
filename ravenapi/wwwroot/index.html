@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ravenapi.com</title>
+</head>
+<body>
+    <center>
+        <h4>Welcome to ravenapi.com.</h4>
+    </center>
+    <p>
+        This list of APIs are for GORAVEN.IO.  We can build Ravencoin APIs based on your needs.
+        All API calls require bearer token except for login.
+    </p>
+    <table border="1">
+        <tr>
+            <th>
+                Function/Notes
+            </th>
+            <th>
+                Method
+            </th>
+            <th>
+                URL
+            </th>
+            <th>
+                Body
+            </th>
+            <th>
+                Response
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Login (main client and client partners).
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                https://ravenapi.com/users/authenticate
+            </td>
+            <td>
+                {<br />
+                "Username":"blackbird",<br />
+                "Password":"thispasswordwillnotwork"<br />
+                }
+            </td>
+            <td width="100">
+                {<br />
+                "id": 1,<br />
+                "firstName": null,<br />
+                "lastName": null,<br />
+                "username": "blackbird",<br />
+                "password": null,<br />
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCg6IkpXVCJ9.eyJ1bmlx2WVfbmFtZSI6IjEiLCJuYmYiOjE1ODA2OTI5ODcsImV4c<br />
+                xTtJx28WIwG_3gZqGEYc-4ssh2jEj54UwOc2SPyCyG4"<br />
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Associate Burn Address to Entity (main client only).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getBurnAddressNew/:?burnAddressRef=1007&Tag=mofo
+            </td>
+            <td>
+            </td>
+            <td>
+                {<br />
+                "burnAddress":"RX5wP3ubj58rUmY8W2C257u6XXXXZ7ceBL","custId":1,"burnAddressRef":"1007","burnAddressTag":"fomo",<br />
+                "updateDateTime":"2020-02-04T20:46:03","createDateTime":"2019-11-30T23:55:40"<br />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Query burn address info by entity reference (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getBurnAddressByRef/1007
+            </td>
+            <td>
+            </td>
+            <td>
+                {<br />
+                "burnAddress":"RX5wP3ubj58rUmY8W2C257u6XXXXZ7ceBL","custId":1,"burnAddressRef":"1007","burnAddressTag":"fomo",<br />
+                "updateDateTime":"2020-02-04T20:46:03","createDateTime":"2019-11-30T23:55:40"<br />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Query burn address info by burn address (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getBurnAddress/RX5wP3ubj58rUmY8W2C257u6XXXXZ7ceBL
+            </td>
+            <td>
+            </td>
+            <td>
+                {<br />
+                "burnAddress":"RX5wP3ubj58rUmY8W2C257u6XXXXZ7ceBL","custId":1,"burnAddressRef":"1007","burnAddressTag":"fomo",<br />
+                "updateDateTime":"2020-02-04T20:46:03","createDateTime":"2019-11-30T23:55:40"<br />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get burn address list (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getBurnAddressList
+            </td>
+            <td>
+            </td>
+            <td>
+                [<br />
+                {"burnAddress":"RXb9MtXFLyJYaFxb2zuWbipNnXXXVNPhfA","custId":1,"burnAddressRef":"1000","burnAddressTag":null,"updateDateTime":"2019-12-20T02:45:08","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RXhnh4whNjaVuYoDoHaauY88EXXXXJBHrx","custId":1,"burnAddressRef":"1001","burnAddressTag":"Car","updateDateTime":"2019-12-20T03:25:39","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RXeLadh8WSARhotqtBNo5MJ4XXXXW1C3oz","custId":1,"burnAddressRef":"1002","burnAddressTag":"jet","updateDateTime":"2019-12-21T23:58:25","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RXKkqhF2QzoHQL98uUGVCcNMuXXXYtjfWT","custId":1,"burnAddressRef":"1003","burnAddressTag":"train","updateDateTime":"2019-12-24T17:43:24","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RXSxnGYN9otApxv5Gy67qst9TgXXWNvXLb","custId":1,"burnAddressRef":"1004","burnAddressTag":"","updateDateTime":"2019-12-24T18:36:41","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RXoMeyZusJrcGk4ZzVji2J68fDXXZ9cV5F","custId":1,"burnAddressRef":"1005","burnAddressTag":"momo","updateDateTime":"2019-12-24T18:38:44","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RXFeeZqzCSrkPE31uAAy1XXXXXXXXeHRp2","custId":1,"burnAddressRef":"1006","burnAddressTag":"fofo","updateDateTime":"2019-12-24T18:42:50","createDateTime":"2019-11-30T23:55:40"},<br />
+                {"burnAddress":"RX5wP3ubj58rUmY8W2C257u6XXXXZ7ceBL","custId":1,"burnAddressRef":"1007","burnAddressTag":"fomo","updateDateTime":"2020-02-04T20:46:03","createDateTime":"2019-11-30T23:55:40"}<br />
+                ]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get status token info (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getAsset/GORAVEN
+            </td>
+            <td>
+            </td>
+            <td>
+                {"custId":1,"asset":"GORAVEN","assetRef":"GORAVEN","tag":"GORAVEN","createDateTime":"2019-12-21T17:04:59","status":1}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get status token info by reference (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getAssetByRef/GORAVEN
+            </td>
+            <td>
+            </td>
+            <td>
+                {"custId":1,"asset":"GORAVEN","assetRef":"GORAVEN","tag":"GORAVEN","createDateTime":"2019-12-21T17:04:59","status":1}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get status token list (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getAssetList
+            </td>
+            <td>
+            </td>
+            <td>
+                [<br />
+                {"custId":3,"asset":"ASS","assetRef":"ASS","tag":"ASS","createDateTime":"2020-01-05T00:15:33","status":1},<br />
+                {"custId":4,"asset":"ASS2","assetRef":"ASS2","tag":"ASS2","createDateTime":"2020-01-05T00:15:51","status":1},<br />
+                {"custId":1,"asset":"GORAVEN","assetRef":"GORAVEN","tag":"GORAVEN","createDateTime":"2019-12-21T17:04:59","status":1},<br />
+                {"custId":1,"asset":"GOVOTE","assetRef":"GOVOTE","tag":"GOVOTE","createDateTime":"2019-12-21T17:05:27","status":1}<br />
+                ]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Set status to burn address (burn address must be within partner group and asset must be associated to login id).
+                Returns ProcessId, use ProcessId to get Blockchain txid.
+            </td>
+            <td>
+                PUT
+            </td>
+            <td>
+                https://ravenapi.com/api/setProcess/:?address=RX5wP3ubj58rUmY8W2C257u6XXXXZ7ceBL&asset=GORAVEN
+            </td>
+            <td>
+            </td>
+            <td>
+                7bd6e755-d104-4a07-aecc-e79e9567d5b7
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get Tx info by ProcessId (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getTxByProcessId/7bd6e755-d104-4a07-aecc-e79e9567d5b7
+            </td>
+            <td>
+            </td>
+            <td>
+                {"tx":c8ac55e76b6240526db52e2839c71e616e40c06c98fbbb2d753aa7705b4a73d0,"custId":1,"processId":7bd6e755-d104-4a07-aecc-e79e9567d5b7,"createDateTime":"2020-01-01T00:00:00"}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get Tx info by Txid (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getTxByProcessId/c8ac55e76b6240526db52e2839c71e616e40c06c98fbbb2d753aa7705b4a73d0
+            </td>
+            <td>
+            </td>
+            <td>
+                {"tx":c8ac55e76b6240526db52e2839c71e616e40c06c98fbbb2d753aa7705b4a73d0,"custId":1,"processId":7bd6e755-d104-4a07-aecc-e79e9567d5b7,"createDateTime":"2020-01-01T00:00:00"}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get Tx list (main client and client partners).
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                https://ravenapi.com/api/getTxList
+            </td>
+            <td>
+            </td>
+            <td>
+                [<br />
+                {"tx":e04846f0cdcab7fb39f3749743cd1846c0e1c104153dfedd65a890a4ed6d5cd2,"custId":1,"processId"d390107c-c847-4468-a01e-25cc6bb31f56,"createDateTime":"2019-12-24T00:00:00"}<br />
+                {"tx":c8ac55e76b6240526db52e2839c71e616e40c06c98fbbb2d753aa7705b4a73d0,"custId":1,"processId":7bd6e755-d104-4a07-aecc-e79e9567d5b7,"createDateTime":"2020-01-01T00:00:00"}<br />
+                ]
+            </td>
+        </tr>
+
+    </table>
+    To be continued.
+</body>
+</html>
