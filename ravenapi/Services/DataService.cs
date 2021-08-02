@@ -11,7 +11,7 @@ namespace ravenapi.Services
     
     public static class DataService
     {
-        public static string constr = "Server=35.223.100.164;Database=;Uid=root;Pwd=w6FtFC819JH8jd77";
+        public static string constr = "Server=35.223.100.164;Database=;Uid=root;Pwd=removed";
         public static User UserLogin(string username, string password)
         {
             User user = new User();
